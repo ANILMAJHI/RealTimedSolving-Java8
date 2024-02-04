@@ -31,6 +31,8 @@ public class Test2 {
 		employeeList.add(new Employee(266, "Sanvi Pandey", 26, "Female", "Product Development", 2015, 28900.0));
 		employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
 
+		Long count=employeeList.stream().count();
+		System.out.println("Total emp:"+count);
 		// find the highest salary each department
 		Map<String, Optional<Employee>> dds = employeeList.stream().collect(Collectors
 				.groupingBy(Employee::getDepartment, Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
