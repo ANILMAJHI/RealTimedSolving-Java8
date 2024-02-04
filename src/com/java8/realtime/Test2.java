@@ -32,7 +32,7 @@ public class Test2 {
 		employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
 
 		Long count=employeeList.stream().count();
-		System.out.println("Total emp:"+count);
+		//System.out.println("Total emp:"+count);
 		// find the highest salary each department
 		Map<String, Optional<Employee>> dds = employeeList.stream().collect(Collectors
 				.groupingBy(Employee::getDepartment, Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
@@ -41,6 +41,8 @@ public class Test2 {
 			// sal.get().getSalary());
 		});
 
+		//new code added feature1 branch
+		employeeList.stream().filter(s->s.getName().startsWith("A")).forEach(System.out::println);
 
 		// System.out.println("dds" + dds);
 
@@ -90,7 +92,7 @@ public class Test2 {
 			//	.collect(Collectors.toList());
 		List<String> joining = employeeList.stream().filter(s -> s.getYearOfJoining() > 2015).map(s -> s.getDepartment()+":"+s.getYearOfJoining())
 				.collect(Collectors.toList());
-		 System.out.println("joining "+joining);
+		 //System.out.println("joining "+joining);
 
 		// find out the employee greater then 30 age
 
@@ -156,7 +158,7 @@ public class Test2 {
 		Map<String, Long> dg = employeeList.stream()
 				.filter(s -> s.getDepartment().equalsIgnoreCase("sales and marketing"))
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
-		System.out.println(dg);
+		//System.out.println(dg);
 
 		// What is the average salary of male and female employees?
 		employeeList.stream()
