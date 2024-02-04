@@ -38,9 +38,7 @@ public class Test2 {
 			// System.out.println("deparatment: " + de + ",salary:" +
 			// sal.get().getSalary());
 		});
-		
-		//this is the new line for check git testing
-		employeeList.stream().forEach(System.out::println);
+
 
 		// System.out.println("dds" + dds);
 
