@@ -31,8 +31,8 @@ public class Test2 {
 		employeeList.add(new Employee(266, "Sanvi Pandey", 26, "Female", "Product Development", 2015, 28900.0));
 		employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
 
-		Long count=employeeList.stream().count();
-		//System.out.println("Total emp:"+count);
+		Long count = employeeList.stream().count();
+		// System.out.println("Total emp:"+count);
 		// find the highest salary each department
 		Map<String, Optional<Employee>> dds = employeeList.stream().collect(Collectors
 				.groupingBy(Employee::getDepartment, Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
@@ -41,8 +41,8 @@ public class Test2 {
 			// sal.get().getSalary());
 		});
 
-		//new code added feature1 branch
-		employeeList.stream().filter(s->s.getName().startsWith("A")).forEach(System.out::println);
+		// new code added feature1 branch
+		employeeList.stream().filter(s -> s.getName().startsWith("A")).forEach(System.out::println);
 
 		// System.out.println("dds" + dds);
 
@@ -72,7 +72,7 @@ public class Test2 {
 		// s.getDepartment()).distinct().collect(Collectors.toList());
 		// System.out.println("dep name; "+dempar);
 
-		//highest salary
+		// highest salary
 		// Optional<Employee>
 		// higS=employeeList.stream().max(Comparator.comparing(Employee::getSalary));
 
@@ -88,11 +88,12 @@ public class Test2 {
 		// System.out.println(d);
 
 		// Those are joining after 2015
-		//List<Employee> joining = employeeList.stream().filter(s -> s.getYearOfJoining() > 2015).map(s -> s)
-			//	.collect(Collectors.toList());
-		List<String> joining = employeeList.stream().filter(s -> s.getYearOfJoining() > 2015).map(s -> s.getDepartment()+":"+s.getYearOfJoining())
-				.collect(Collectors.toList());
-		 //System.out.println("joining "+joining);
+		// List<Employee> joining = employeeList.stream().filter(s ->
+		// s.getYearOfJoining() > 2015).map(s -> s)
+		// .collect(Collectors.toList());
+		List<String> joining = employeeList.stream().filter(s -> s.getYearOfJoining() > 2015)
+				.map(s -> s.getDepartment() + ":" + s.getYearOfJoining()).collect(Collectors.toList());
+		// System.out.println("joining "+joining);
 
 		// find out the employee greater then 30 age
 
@@ -158,10 +159,8 @@ public class Test2 {
 		Map<String, Long> dg = employeeList.stream()
 				.filter(s -> s.getDepartment().equalsIgnoreCase("sales and marketing"))
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
-		//System.out.println(dg);
-		
+		// System.out.println(dg);
 
-		
 		// What is the average salary of male and female employees?
 		employeeList.stream()
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)));
@@ -176,9 +175,9 @@ public class Test2 {
 						&& s.getGender().equalsIgnoreCase("female"))
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
 		deFEmployees.entrySet().forEach(s -> {
-			//System.out.println(s.getKey());
+			// System.out.println(s.getKey());
 		});
-		//System.out.println("deFEmployees: " + deFEmployees);
+		// System.out.println("deFEmployees: " + deFEmployees);
 
 		Map<String, List<Employee>> dld = employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment));
 		dld.entrySet().forEach(s -> {
