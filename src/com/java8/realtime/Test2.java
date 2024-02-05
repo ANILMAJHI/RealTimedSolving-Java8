@@ -160,6 +160,8 @@ public class Test2 {
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
 		//System.out.println(dg);
 
+		//new code conflits test
+		
 		// What is the average salary of male and female employees?
 		employeeList.stream()
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)));
