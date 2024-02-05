@@ -159,6 +159,8 @@ public class Test2 {
 				.filter(s -> s.getDepartment().equalsIgnoreCase("sales and marketing"))
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
 		//System.out.println(dg);
+		
+		//new code conflits
 
 		// What is the average salary of male and female employees?
 		employeeList.stream()
