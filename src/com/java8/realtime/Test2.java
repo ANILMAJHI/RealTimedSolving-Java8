@@ -159,6 +159,8 @@ public class Test2 {
 				.filter(s -> s.getDepartment().equalsIgnoreCase("sales and marketing"))
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
 		//System.out.println(dg);
+		
+		//new code conflits
 
 		//new code conflits test
 		
